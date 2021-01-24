@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
+import java.io.*;
+import java.net.Socket;
+
 public class Controller {
 
     @FXML
@@ -19,14 +22,67 @@ public class Controller {
     public Label R;
     public Label G;
     public Label B;
+    public Label YW;
+    public Label OW;
+    public Label WG;
 
     @FXML
     public Pane BG;
 
     String[] colors;
     String colran;
+
+     BufferedWriter writer;
+     BufferedReader reader;
+
+    public Controller(){
+        try {
+            Socket socket = new Socket("127.0.0.1", 8080);
+
+            OutputStreamWriter o = new OutputStreamWriter(socket.getOutputStream());
+            writer = new BufferedWriter(o);
+
+            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+            reader = new BufferedReader(isr);
+
+
+            Thread t = new Thread(){
+                public void run(){
+                    try{
+                        String line = reader.readLine() + "\n";
+                        System.out.println(line);
+                        while (line != null){
+                            if (line.equals("win2\n")){
+                                WG.setVisible(false);
+                                OW.setVisible(true);
+                                Btn1.setDisable(true);
+                                Btn2.setDisable(true);
+                                Btn3.setDisable(true);
+                                Btn4.setDisable(true);
+                            }
+                            line = reader.readLine() + "\n";
+                        }
+                    }
+                    catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            };
+            t.start();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
     @FXML
     public void BPlay(){
+//        try {
+//            writer.write("win\n");
+//            writer.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
         int r=0,g=0,b=0;
         colors = new String[4];
         for (int i=0;i<4;i++){
@@ -77,13 +133,20 @@ public class Controller {
         Btn2.setDisable(false);
         Btn3.setDisable(false);
         Btn4.setDisable(false);
-
+        YW.setVisible(false);
+        OW.setVisible(false);
+        WG.setVisible(false);
     }
 
     @FXML
-    public void One(){
+    public void One() throws IOException {
         if (colors[0] == colran){
-            System.out.println("correct");
+            YW.setVisible(true);
+            writer.write("win1\n");
+            writer.flush();
+            Btn2.setStyle(colran);
+            Btn3.setStyle(colran);
+            Btn4.setStyle(colran);
         }else if(colors[1] == colran) {
             Btn2.setDisable(true);
             Btn2.setOpacity(1);
@@ -94,15 +157,21 @@ public class Controller {
             Btn4.setDisable(true);
             Btn4.setOpacity(1);
         }
+        WG.setVisible(true);
         Btn2.setStyle(colran);
         Btn3.setStyle(colran);
         Btn4.setStyle(colran);
     }
 
     @FXML
-    public void Two(){
+    public void Two() throws IOException {
         if (colors[1] == colran){
-            System.out.println("correct");
+            YW.setVisible(true);
+            writer.write("win1\n");
+            writer.flush();
+            Btn1.setStyle(colran);
+            Btn3.setStyle(colran);
+            Btn4.setStyle(colran);
         }else if(colors[0] == colran) {
             Btn1.setDisable(true);
             Btn1.setOpacity(1);
@@ -113,46 +182,73 @@ public class Controller {
             Btn4.setDisable(true);
             Btn4.setOpacity(1);
         }
+        WG.setVisible(true);
         Btn1.setStyle(colran);
         Btn3.setStyle(colran);
         Btn4.setStyle(colran);
     }
 
     @FXML
-    public void Three(){
+    public void Three() throws IOException {
         if (colors[2] == colran){
-            System.out.println("correct");
-        }else if(colors[0] == colran) {
-            Btn1.setDisable(true);
-            Btn1.setOpacity(1);
-        }else if(colors[1] == colran) {
-            Btn2.setDisable(true);
-            Btn2.setOpacity(1);
-        }else if(colors[3] == colran) {
+            YW.setVisible(true);
+            writer.write("win1\n");
+            writer.flush();
+            Btn1.setStyle(colran);
+            Btn2.setStyle(colran);
+            Btn4.setStyle(colran);
+        }//else if(colors[0] == colran) {
+//
+//        }else if(colors[1] == colran) {
+//
+//        }else if(colors[3] == colran) {
+//
+//        }
+        else{
             Btn4.setDisable(true);
             Btn4.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
+            WG.setVisible(true);
+            Btn1.setStyle(colran);
+            Btn2.setStyle(colran);
+            Btn4.setStyle(colran);
         }
-        Btn1.setStyle(colran);
-        Btn2.setStyle(colran);
-        Btn4.setStyle(colran);
     }
 
     @FXML
-    public void Four(){
+    public void Four() throws IOException {
         if (colors[3] == colran){
-            System.out.println("correct");
-        }else if(colors[0] == colran) {
-            Btn1.setDisable(true);
-            Btn1.setOpacity(1);
-        }else if(colors[1] == colran) {
-            Btn2.setDisable(true);
-            Btn2.setOpacity(1);
-        }else if(colors[2] == colran) {
+            YW.setVisible(true);
+            writer.write("win1\n");
+            writer.flush();
+            Btn1.setStyle(colran);
+            Btn2.setStyle(colran);
+            Btn3.setStyle(colran);
+        }//else if(colors[0] == colran) {
+//            Btn1.setDisable(true);
+//            Btn1.setOpacity(1);
+//        }else if(colors[1] == colran) {
+//            Btn2.setDisable(true);
+//            Btn2.setOpacity(1);
+//        }else if(colors[2] == colran) {
+//            Btn3.setDisable(true);
+//            Btn3.setOpacity(1);
+//        }
+        else{
             Btn3.setDisable(true);
             Btn3.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
+            WG.setVisible(true);
+            Btn1.setStyle(colran);
+            Btn2.setStyle(colran);
+            Btn3.setStyle(colran);
         }
-        Btn1.setStyle(colran);
-        Btn2.setStyle(colran);
-        Btn3.setStyle(colran);
+
     }
 }

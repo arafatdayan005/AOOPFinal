@@ -21,68 +21,105 @@
     <children>
         <AnchorPane prefHeight="570.0" prefWidth="592.0">
             <children>
-                <Pane fx:id="BG" layoutX="-1.0" layoutY="237.0" prefHeight="340.0" prefWidth="592.0" style="-fx-background-color: #6e6b6b;" visible="false" />
-                <Label layoutX="263.0" layoutY="14.0" prefHeight="50.0" prefWidth="66.0" text="RGB">
-                    <font>
-                        <Font size="34.0" />
-                    </font>
-                    <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startY="1.0">
-                            <stops>
-                                <Stop color="RED" />
-                                <Stop color="RED" offset="0.007633587786259542" />
-                                <Stop color="#41ff00" offset="0.5072937362752269" />
-                                <Stop color="#0042ff" offset="1.0" />
-                            </stops>
+                <Pane fx:id="BG" layoutX="-1.0" layoutY="237.0" prefHeight="340.0" prefWidth="592.0" style="-fx-background-color: #6e6b6b;">
+               <children>
+                      <Button fx:id="Btn1" layoutX="145.0" layoutY="20.0" mnemonicParsing="false" onAction="#One" prefHeight="114.0" prefWidth="124.0" visible="false" />
+                      <Button fx:id="Btn2" layoutX="323.0" layoutY="20.0" mnemonicParsing="false" onAction="#Two" prefHeight="114.0" prefWidth="124.0" visible="false" />
+                      <Button fx:id="Btn3" layoutX="145.0" layoutY="210.0" mnemonicParsing="false" onAction="#Three" prefHeight="114.0" prefWidth="124.0" visible="false" />
+                      <Button fx:id="Btn4" layoutX="323.0" layoutY="210.0" mnemonicParsing="false" onAction="#Four" prefHeight="114.0" prefWidth="124.0" visible="false" />
+                  <Label fx:id="YW" alignment="CENTER" layoutX="28.0" layoutY="99.0" prefHeight="143.0" prefWidth="536.0" text="#YOU WIN#" visible="false">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#ff2200" />
+                              <Stop color="#ff2200" offset="0.007633587786259542" />
+                              <Stop color="#ffa100" offset="0.13356164383561642" />
+                              <Stop color="#fffb00" offset="0.26044651260064833" />
+                              <Stop color="#80ff00" offset="0.38804245529645504" />
+                              <Stop color="#03edff" offset="0.5150109798180486" />
+                              <Stop color="#00c8ff" offset="0.6353288716929829" />
+                              <Stop color="#000dff" offset="0.7608125065356062" />
+                              <Stop color="#ea00ff" offset="0.8773658893652615" />
+                              <Stop color="RED" offset="1.0" />
+                           </stops>
                         </LinearGradient>
-                    </textFill>
-                </Label>
-                <Label layoutX="169.0" layoutY="64.0" prefHeight="36.0" prefWidth="254.0" text="Color Gussing Game">
-                    <font>
-                        <Font size="27.0" />
-                    </font>
-                    <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startY="1.0">
-                            <stops>
-                                <Stop color="RED" />
-                                <Stop color="RED" offset="0.007633587786259542" />
-                                <Stop color="#2179f5" offset="0.25419324479765765" />
-                                <Stop color="#ff7200" offset="0.5072937362752267" />
-                                <Stop color="#ff2bee" offset="0.7554794520547945" />
-                                <Stop color="#00e5ff" offset="1.0" />
-                            </stops>
-                        </LinearGradient>
-                    </textFill>
-                </Label>
-                <Button fx:id="BtnP" layoutX="263.0" layoutY="113.0" mnemonicParsing="false" onAction="#BPlay" prefHeight="39.0" prefWidth="66.0" text="PLAY">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Button>
-                <Label fx:id="RGB" layoutX="145.0" layoutY="163.0" prefHeight="74.0" prefWidth="302.0" text="RGB(      ,       ,       )" visible="false">
-                    <font>
-                        <Font size="36.0" />
-                    </font>
-                </Label>
-                <Button fx:id="Btn1" layoutX="145.0" layoutY="250.0" mnemonicParsing="false" onAction="#One" prefHeight="114.0" prefWidth="124.0" visible="false" />
-                <Button fx:id="Btn2" layoutX="323.0" layoutY="250.0" mnemonicParsing="false" onAction="#Two" prefHeight="114.0" prefWidth="124.0" visible="false" />
-                <Button fx:id="Btn3" layoutX="145.0" layoutY="411.0" mnemonicParsing="false" onAction="#Three" prefHeight="114.0" prefWidth="124.0" visible="false" />
-                <Button fx:id="Btn4" layoutX="323.0" layoutY="411.0" mnemonicParsing="false" onAction="#Four" prefHeight="114.0" prefWidth="124.0" visible="false" />
-                <Label fx:id="R" layoutX="223.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="234" textFill="RED" visible="false">
-                    <font>
-                        <Font size="35.0" />
-                    </font>
-                </Label>
-                <Label fx:id="G" layoutX="300.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="235" textFill="LIME" visible="false">
-                    <font>
-                        <Font size="35.0" />
-                    </font>
-                </Label>
-                <Label fx:id="B" layoutX="375.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="233" textFill="BLUE" visible="false">
-                    <font>
-                        <Font size="35.0" />
-                    </font>
-                </Label>
+                     </textFill>
+                  </Label>
+                  <Label fx:id="OW" alignment="CENTER" layoutX="28.0" layoutY="98.0" prefHeight="143.0" prefWidth="536.0" text="OPPONENT WIN" textFill="#ff0303" visible="false">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="WG" alignment="CENTER" layoutX="28.0" layoutY="98.0" prefHeight="143.0" prefWidth="536.0" text="!WRONG GUESS!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="70.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane layoutX="-1.0" prefHeight="238.0" prefWidth="592.0" style="-fx-background-color: #fae1c0;">
+               <children>
+                      <Label layoutX="263.0" layoutY="14.0" prefHeight="50.0" prefWidth="66.0" text="RGB">
+                          <font>
+                              <Font size="34.0" />
+                          </font>
+                          <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                                  <stops>
+                                      <Stop color="RED" />
+                                      <Stop color="RED" offset="0.007633587786259542" />
+                                      <Stop color="#41ff00" offset="0.5072937362752269" />
+                                      <Stop color="#0042ff" offset="1.0" />
+                                  </stops>
+                              </LinearGradient>
+                          </textFill>
+                      </Label>
+                      <Label layoutX="169.0" layoutY="64.0" prefHeight="36.0" prefWidth="254.0" text="Color Gussing Game">
+                          <font>
+                              <Font size="27.0" />
+                          </font>
+                          <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                                  <stops>
+                                      <Stop color="RED" />
+                                      <Stop color="RED" offset="0.007633587786259542" />
+                                      <Stop color="#2179f5" offset="0.25419324479765765" />
+                                      <Stop color="#ff7200" offset="0.5072937362752267" />
+                                      <Stop color="#ff2bee" offset="0.7554794520547945" />
+                                      <Stop color="#00e5ff" offset="1.0" />
+                                  </stops>
+                              </LinearGradient>
+                          </textFill>
+                      </Label>
+                      <Button fx:id="BtnP" layoutX="263.0" layoutY="113.0" mnemonicParsing="false" onAction="#BPlay" prefHeight="39.0" prefWidth="66.0" style="-fx-background-color: #fffc9e;" text="PLAY">
+                          <font>
+                              <Font size="18.0" />
+                          </font>
+                      </Button>
+                      <Label fx:id="RGB" layoutX="145.0" layoutY="163.0" prefHeight="74.0" prefWidth="302.0" text="RGB(      ,       ,       )" visible="false">
+                          <font>
+                              <Font size="36.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="R" layoutX="223.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="234" textFill="RED" visible="false">
+                          <font>
+                              <Font size="35.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="G" layoutX="300.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="235" textFill="LIME" visible="false">
+                          <font>
+                              <Font size="35.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="B" layoutX="375.0" layoutY="173.0" prefHeight="54.0" prefWidth="57.0" text="233" textFill="BLUE" visible="false">
+                          <font>
+                              <Font size="35.0" />
+                          </font>
+                      </Label>
+               </children>
+            </Pane>
             </children></AnchorPane>
     </children>
 </GridPane>
