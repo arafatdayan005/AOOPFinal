@@ -32,8 +32,8 @@ public class Controller {
     String[] colors;
     String colran;
 
-     BufferedWriter writer;
-     BufferedReader reader;
+    BufferedWriter writer;
+    BufferedReader reader;
 
     public Controller(){
         try {
@@ -76,13 +76,6 @@ public class Controller {
     }
     @FXML
     public void BPlay(){
-//        try {
-//            writer.write("win\n");
-//            writer.flush();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         int r=0,g=0,b=0;
         colors = new String[4];
         for (int i=0;i<4;i++){
@@ -142,69 +135,76 @@ public class Controller {
     public void One() throws IOException {
         if (colors[0] == colran){
             YW.setVisible(true);
+            Btn3.setDisable(true);
+            Btn3.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            Btn4.setDisable(true);
+            Btn4.setOpacity(1);
+            Btn4.setStyle(colran);
+            Btn2.setStyle(colran);
+            Btn3.setStyle(colran);
             writer.write("win1\n");
             writer.flush();
+        }else{
+            Btn4.setDisable(true);
+            Btn4.setOpacity(1);
+            Btn3.setDisable(true);
+            Btn3.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            WG.setVisible(true);
             Btn2.setStyle(colran);
             Btn3.setStyle(colran);
             Btn4.setStyle(colran);
-        }else if(colors[1] == colran) {
-            Btn2.setDisable(true);
-            Btn2.setOpacity(1);
-        }else if(colors[2] == colran) {
-            Btn3.setDisable(true);
-            Btn3.setOpacity(1);
-        }else if(colors[3] == colran) {
-            Btn4.setDisable(true);
-            Btn4.setOpacity(1);
         }
-        WG.setVisible(true);
-        Btn2.setStyle(colran);
-        Btn3.setStyle(colran);
-        Btn4.setStyle(colran);
     }
 
     @FXML
     public void Two() throws IOException {
         if (colors[1] == colran){
             YW.setVisible(true);
+            Btn3.setDisable(true);
+            Btn3.setOpacity(1);
+            Btn4.setDisable(true);
+            Btn4.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
+            Btn1.setStyle(colran);
+            Btn4.setStyle(colran);
+            Btn3.setStyle(colran);
             writer.write("win1\n");
             writer.flush();
+        }else{
+            Btn4.setDisable(true);
+            Btn4.setOpacity(1);
+            Btn3.setDisable(true);
+            Btn3.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
+            WG.setVisible(true);
             Btn1.setStyle(colran);
             Btn3.setStyle(colran);
             Btn4.setStyle(colran);
-        }else if(colors[0] == colran) {
-            Btn1.setDisable(true);
-            Btn1.setOpacity(1);
-        }else if(colors[2] == colran) {
-            Btn3.setDisable(true);
-            Btn3.setOpacity(1);
-        }else if(colors[3] == colran) {
-            Btn4.setDisable(true);
-            Btn4.setOpacity(1);
         }
-        WG.setVisible(true);
-        Btn1.setStyle(colran);
-        Btn3.setStyle(colran);
-        Btn4.setStyle(colran);
     }
 
     @FXML
     public void Three() throws IOException {
         if (colors[2] == colran){
             YW.setVisible(true);
+            Btn4.setDisable(true);
+            Btn4.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
+            Btn1.setStyle(colran);
+            Btn4.setStyle(colran);
+            Btn4.setStyle(colran);
             writer.write("win1\n");
             writer.flush();
-            Btn1.setStyle(colran);
-            Btn2.setStyle(colran);
-            Btn4.setStyle(colran);
-        }//else if(colors[0] == colran) {
-//
-//        }else if(colors[1] == colran) {
-//
-//        }else if(colors[3] == colran) {
-//
-//        }
-        else{
+        }else{
             Btn4.setDisable(true);
             Btn4.setOpacity(1);
             Btn2.setDisable(true);
@@ -222,22 +222,18 @@ public class Controller {
     public void Four() throws IOException {
         if (colors[3] == colran){
             YW.setVisible(true);
-            writer.write("win1\n");
-            writer.flush();
+            Btn3.setDisable(true);
+            Btn3.setOpacity(1);
+            Btn2.setDisable(true);
+            Btn2.setOpacity(1);
+            Btn1.setDisable(true);
+            Btn1.setOpacity(1);
             Btn1.setStyle(colran);
             Btn2.setStyle(colran);
             Btn3.setStyle(colran);
-        }//else if(colors[0] == colran) {
-//            Btn1.setDisable(true);
-//            Btn1.setOpacity(1);
-//        }else if(colors[1] == colran) {
-//            Btn2.setDisable(true);
-//            Btn2.setOpacity(1);
-//        }else if(colors[2] == colran) {
-//            Btn3.setDisable(true);
-//            Btn3.setOpacity(1);
-//        }
-        else{
+            writer.write("win1\n");
+            writer.flush();
+        } else{
             Btn3.setDisable(true);
             Btn3.setOpacity(1);
             Btn2.setDisable(true);
@@ -249,6 +245,5 @@ public class Controller {
             Btn2.setStyle(colran);
             Btn3.setStyle(colran);
         }
-
     }
 }
