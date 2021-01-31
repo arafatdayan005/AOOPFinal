@@ -200,7 +200,7 @@ public class Controller {
             Btn1.setDisable(true);
             Btn1.setOpacity(1);
             Btn1.setStyle(colran);
-            Btn4.setStyle(colran);
+            Btn2.setStyle(colran);
             Btn4.setStyle(colran);
             writer.write("win1\n");
             writer.flush();
